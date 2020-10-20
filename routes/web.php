@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('redirect3', function () {
+    return redirect()->route('url.name');
+});
+
+//route('url.name')
+
+Route::get('/nome-url', function () {
+    return "hey hey hey";
+})-> name('url.name');
+
 Route::view('/view', 'welcome');
 
 Route::redirect('/redirect1', '/redirect2');
