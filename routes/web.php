@@ -12,6 +12,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/produtos/{idProduct?}', function ($idProduct = '') {
+    return "Produtos {$idProduct}";
+});
+
+Route::get('/categoria/{flag}/posts', function ($flag) {
+    return "posts da categoria: {$flag}";
+});
+
+Route::get('/categorias/{flag}', function ($flag) {
+    return "produtos da categoria: {$flag}";
+});
+
+Route::match(['get','post'],'/match', function () {
+    return 'Match';
+});
+
+Route::any('/any', function () {
+    return 'Any';
+});
+
 Route::post('/register', function () {
     return '';
 });
