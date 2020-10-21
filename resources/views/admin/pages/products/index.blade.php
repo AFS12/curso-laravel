@@ -6,6 +6,10 @@
 
     <h1>EXIBINDO PRODUTOS</h1>
 
+    <a href="{{route("products.create")}}"><input type="button" value="Cadastrar"></a>
+
+    <hr>
+
     @component('admin.components.card')
         @slot('title')
             <h1>Titulo card</h1>
