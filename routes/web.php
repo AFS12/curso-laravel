@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('products/{id}', 'App\Http\Controllers\ProductController@show')->name('products.show');
 Route::get('products', 'App\Http\Controllers\ProductController@index')->name('products.index');
 
 Route::get('/login', function () {
