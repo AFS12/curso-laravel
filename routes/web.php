@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('products', 'App\Http\Controllers\ProductController@index')->name('products.index');
+
 Route::get('/login', function () {
     return "Login";
 })-> name('login');
 
 /*
+    Exemplo de rotas:
+
 Route::middleware([])->group(function(){
 
     Route::prefix('admin')-> group(function(){
@@ -38,7 +42,7 @@ Route::middleware([])->group(function(){
         });
     });
 });
-*/
+
 
 Route::group([
     'middleware' => [],
@@ -116,3 +120,4 @@ Route::get('/contato', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+*/
