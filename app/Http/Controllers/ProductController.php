@@ -14,6 +14,14 @@ class ProductController extends Controller
     {
         //dd($request->prm1);
         $this->request = $request;
+        //$this->middleware('auth');
+        /*
+        $this->middleware('auth')->only([
+            'create', 'store'
+        ]);*/
+        $this->middleware('auth')->except([
+            'index', 'show'
+        ]);
     }
 
     /**
