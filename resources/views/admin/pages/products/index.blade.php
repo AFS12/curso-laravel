@@ -5,6 +5,23 @@
 @section('content')
 
     <h1>EXIBINDO PRODUTOS</h1>
+
+    @if (isset($products))
+        @foreach ($products as $product)
+            <p class="@if ($loop->last)last @endif">{{$product}}</p>
+        @endforeach
+    @endif
+
+    <hr>
+
+    @forelse ($products as $product)
+        <p class="@if ($loop->first)last @endif">{{$product}}</p>
+    @empty
+        <p>Não existe produto</p>
+    @endforelse
+
+    <hr>
+    
     @if ($teste === '123')
         É igual
     @elseif ($teste == 123)
@@ -25,7 +42,9 @@
     @endisset
 
     @empty($teste3)
-        osadoijfdsaofodsaofds
+        array vazio
+    @else
+        array não vazio
     @endempty
 
     @auth
@@ -58,4 +77,10 @@
     @endswitch
 
 @endsection
+
+<style>
+    .last{
+        background: red;
+    }
+</style>
 
