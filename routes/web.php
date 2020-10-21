@@ -17,23 +17,46 @@ Route::get('/login', function () {
     return "Login";
 })-> name('login');
 
+/*
 Route::middleware([])->group(function(){
 
     Route::prefix('admin')-> group(function(){
 
-        Route::namespace('App\Http\Controllers\Admin\TesteController@teste')->group(function(){
-        
-        Route::get('/dashboard', 'App\Http\Controllers\Admin\TesteController@teste');
-        
-        Route::get('/financeiro', 'App\Http\Controllers\Admin\TesteController@teste');
-        
-        Route::get('/produtos', 'App\Http\Controllers\Admin\TesteController@teste');
+        Route::namespace('App\Http\Controllers\Admin')->group(function(){
 
-        Route::get('/', 'App\Http\Controllers\Admin\TesteController@teste');
+            Route::name('admin.')->group(function(){
+                Route::get('/dashboard', 'TesteController@teste')->name('dashboard');
+            
+                Route::get('/financeiro', 'TesteController@teste')->name('financeiro');
+            
+                Route::get('/produtos', 'TesteController@teste')->name('produtos');
+
+                Route::get('/', function(){
+                    return redirect()-> route('admin.dashboard');
+                })->name('home');
+            });
         });
     });
 });
+*/
 
+Route::group([
+    'middleware' => [],
+    'prefix' => 'admin',
+    'namespace' => 'App\Http\Controllers\Admin'
+], function(){
+    Route::name('admin.')->group(function(){
+        Route::get('/dashboard', 'TesteController@teste')->name('dashboard');
+    
+        Route::get('/financeiro', 'TesteController@teste')->name('financeiro');
+    
+        Route::get('/produtos', 'TesteController@teste')->name('produtos');
+
+        Route::get('/', function(){
+            return redirect()-> route('admin.dashboard');
+        })->name('home');
+    });
+});
 
 
 Route::get('redirect3', function () {
