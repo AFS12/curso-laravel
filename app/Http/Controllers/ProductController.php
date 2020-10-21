@@ -31,7 +31,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $teste = 123;
+        $teste = '<h1>OLA</h1>';
         return view('teste', compact('teste'));
     }
 

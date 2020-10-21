@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>Pagina de produtos</h1>
-    {{$teste}}
+    {!!$teste!!}
 </body>
 </html>
