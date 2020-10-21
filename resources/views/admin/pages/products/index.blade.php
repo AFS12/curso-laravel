@@ -91,9 +91,17 @@
 
 @endsection
 
-<style>
-    .last{
-        background: red;
-    }
-</style>
+@push('styles')
+    <style>
+        .last{
+            background: red;
+        }
+    </style>
+@endpush
+
+@push('scripts')
+    <script>
+        document.body.style.background = 'cyan';
+    </script>
+@endpush
 
