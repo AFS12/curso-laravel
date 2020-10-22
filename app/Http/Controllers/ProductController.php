@@ -57,6 +57,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // validação simples
+        // $request-> validate([
+        //         'name' => 'required|min:3|max:255',
+        //         'description' => 'nullable|min:3|max:10000',
+        //         'photo' => 'required|image'
+        //     ]);
+
+            dd('ok');
+
         // dd($request-> name); pega um valor especifico
         // dd($request->only(['name','description'])); pega apenas dados especificados
         // dd($request->all()); pega todos os dados
