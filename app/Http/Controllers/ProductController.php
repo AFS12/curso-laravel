@@ -63,6 +63,11 @@ class ProductController extends Controller
         // dd($request-> has('name')); retorna true se existir o valor, se não, retorna false
         // dd($request-> input('', 'campo nao informado/inexistente')); se o campo não existir ele retorna o valor default apos a virgula
         // dd($request-> except('_token', 'name')); pega todos os dados com execção dos especificados
+        if ($request-> file('photo')-> isValid()) {
+            //dd($request->file('photo')-> store('products'));
+            $nameFile = $request -> name . '.' . $request->photo->extension();
+            dd($request->file('photo')-> storeAs('products', $nameFile));
+        }
     }
 
     /**
