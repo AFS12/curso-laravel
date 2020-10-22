@@ -17,8 +17,8 @@
 
     <form action="{{route("products.store")}}" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="name" placeholder="nome ">
-        <input type="text" name="description" placeholder="Descrição">
+        <input type="text" name="name" placeholder="nome" value="{{old('name')}}">
+        <input type="text" name="description" placeholder="Descrição" value="{{old('description')}}">
         <input type="file" name="photo">
         <input type="submit" value="Enviar">
     </form>
