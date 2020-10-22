@@ -57,7 +57,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd("Cadastrando....");
+        // dd($request-> name); pega um valor especifico
+        // dd($request->only(['name','description'])); pega apenas dados especificados
+        // dd($request->all()); pega todos os dados
+        // dd($request-> has('name')); retorna true se existir o valor, se não, retorna false
+        // dd($request-> input('', 'campo nao informado/inexistente')); se o campo não existir ele retorna o valor default apos a virgula
+        // dd($request-> except('_token', 'name')); pega todos os dados com execção dos especificados
     }
 
     /**
