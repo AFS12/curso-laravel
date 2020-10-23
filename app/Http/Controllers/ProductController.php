@@ -89,7 +89,16 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        //$product = Product::where('id', $id)->first();
+        
+        if (!$product = Product::find($id)) {
+            return redirect()->back();
+        }
+
+
+        return view('admin.pages.products.show', [
+            'product' => $product,
+        ]);
     }
 
     /**

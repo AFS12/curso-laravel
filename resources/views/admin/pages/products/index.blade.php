@@ -24,11 +24,12 @@
                     <td>{{$product->name}}</td>
                     <td>{{$product->price}}</td>
                     <td>
-                        <a href=""><input type="button" class='btn btn-primary' value="Detalhes"></a>
+                        <a href="{{ route('products.show', $product->id) }}"><input type="button" class='btn btn-primary' value="Detalhes"></a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
+        
     </table>
 
     {!! $products->links() !!}
