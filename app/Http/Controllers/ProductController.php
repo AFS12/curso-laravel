@@ -63,9 +63,9 @@ class ProductController extends Controller
      */
     public function store(StoreUpdateProductRequest $request)
     {
-        $data = $request->only('name', 'description', 'price');
-
-        $this->repository->create($data);
+        $data = $request->only('name', 'price', 'description');
+        
+        Product::create($data);
 
         return redirect()-> route('products.index');
     }

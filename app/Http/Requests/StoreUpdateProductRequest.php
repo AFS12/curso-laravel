@@ -26,8 +26,17 @@ class StoreUpdateProductRequest extends FormRequest
 
         $id = $this->segment(2);
 
+        if ($id != '') {
+            return [
+                'name' => "required|min:3|max:255|unique:products,name,{$id},id",
+                'description' => 'required|min:3|max:10000',
+                'price' => "required|regex:/^\d+(\.\d{1,2})?$/",
+                'photo' => 'nullable|image',
+            ];
+        }
+
         return [
-            'name' => "required|min:3|max:255|unique:products,name,{$id},id",
+            'name' => "required|min:3|max:255|unique:products,name",
             'description' => 'required|min:3|max:10000',
             'price' => "required|regex:/^\d+(\.\d{1,2})?$/",
             'photo' => 'nullable|image',
