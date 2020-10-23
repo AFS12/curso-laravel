@@ -20,4 +20,16 @@ class Product extends Model
         'price',
         'image',
     ];
+
+    public function search($filter = null)
+    {
+        $results = $this->where(function($query) use($filter){
+            if($filter){
+                $query->where('name', 'LIKE', "%{$filter}%");
+            }
+        })
+        ->paginate();
+        
+        return $results;
+    }
 }

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //------------------rotas de forma mais resumida-------------------
+Route::any('products/search', 'App\Http\Controllers\ProductController@search')->name('products.search'); 
 Route::resource('products', 'App\Http\Controllers\ProductController');//->middleware('auth');
 
 /* ------------------rotas de forma mais personalizada-------------------
