@@ -12,7 +12,7 @@
 
     <form action="{{ route("products.search") }}" method="post" class="form form-inline">
         @csrf
-        <input type="text" name="filter" placeholder="filtrar: " class="form-control" value="{{$filters['filter']?? ''}}">
+        <input type="text" name="filter" placeholder="filtrar: " class="form-control" value="{{$filters['filter']?? ''}}" style="margin: 5px">
         <hr>
         <button type="submit" class="btn btn-info">Pesquisar</button>
     </form>
@@ -39,7 +39,7 @@
                     <td>{{$product->name}}</td>
                     <td>{{$product->price}}</td>
                     <td>
-                        <a href="{{ route('products.edit', $product->id) }}"><input type="button" class='btn btn-primary' value="Editar"></a>
+                        <a href="{{ route('products.edit', $product->id) }}"><input type="button" class='btn btn-primary' value="Editar" style="margin: 5px"></a>
                         <a href="{{ route('products.show', $product->id) }}"><input type="button" class='btn btn-primary' value="Detalhes"></a>
                     </td>
                 </tr>
