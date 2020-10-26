@@ -76,5 +76,6 @@
             @yield('content')
         </main>
     </div>
+    <a href="{{route("products.store")}}"><input type="button" class="btn btn-danger" value="Produtos"></a>
 </body>
 </html>
