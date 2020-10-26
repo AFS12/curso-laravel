@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 //------------------rotas de forma mais resumida-------------------
-Route::any('products/search', 'App\Http\Controllers\ProductController@search')->name('products.search'); 
-Route::resource('products', 'App\Http\Controllers\ProductController');//->middleware('auth');
+Route::any('products/search', 'App\Http\Controllers\ProductController@search')->name('products.search')->middleware('auth'); 
+Route::resource('products', 'App\Http\Controllers\ProductController')->middleware('auth');
 
 /* ------------------rotas de forma mais personalizada-------------------
 Route::delete('products/{id}', 'App\Http\Controllers\ProductController@destroy')->name('products.destroy');
@@ -132,3 +132,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
